@@ -213,11 +213,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void gamble() {
         int temp = 0;
-        boolean forP2 = false;
+        boolean forP2 = true;
         boolean result = false;
         if (tmp1 == 0) {
-            temp = Integer.parseInt(editTextInput.getText().toString());
-            tmp1 = temp;
+            try{
+                temp = Integer.parseInt(editTextInput.getText().toString());
+                tmp1 = temp;
+            } catch(Exception e) {
+                editTextInput.setError("Bet can not be empty");
+                tmp1=0;
+            }
             if(tmp1 > P1 || tmp1 < 0)
             {
                 showDialog("OOPS!!","Invalid amount",false);
@@ -227,14 +232,22 @@ public class MainActivity extends AppCompatActivity {
                 editTextInput.setText("");
         }
         else {
-            temp = Integer.parseInt(editTextInput.getText().toString());
-            tmp2 = temp;
-            if (tmp2 > P2 || tmp2 < 0) {
-                showDialog("OOPS!!", "Invalid amount", false);
-            } else {
-                result = true;
+            if(editTextInput.getText().toString().equals("")) {
+                editTextInput.setError("Bet can not be empty");
+                return;
             }
-            editTextInput.setText("");
+            else {
+                temp = Integer.parseInt(editTextInput.getText().toString());
+                tmp2 = temp;
+                forP2 = false;
+                forP2 = true;
+                if (tmp2 > P2 || tmp2 < 0) {
+                    showDialog("OOPS!!", "Invalid amount", false);
+                } else {
+                    result = true;
+                }
+                editTextInput.setText("");
+            }
         }
         if (result) {
             if (tmp1 > tmp2) {
