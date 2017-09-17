@@ -60,9 +60,12 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
-                builder.setMessage("Look at this dialog!")
-                        .setTitle("This is a title")
-                        .setCancelable(false)
+                builder.setTitle("Rules")
+                        .setMessage("-> Initially both players will get 100 points to bid. " +
+                                "\n-> Before every turn both players have to bid from those points. Whoever bids high, gets a chance to put mark the board" +
+                                "\n-> Players do not get to choose mark 'X' or 'O'. They are altered on every turn irrespective of player" +
+                                "-> If a player is left with 0 points and game is not finished, other player gets victory")
+                        .setCancelable(true)
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 //do things
@@ -93,7 +96,6 @@ public class HomeActivity extends AppCompatActivity {
                         });
                 AlertDialog alert = builder.create();
                 alert.show();
-
             }
         });
 

@@ -14,16 +14,16 @@
         android:background="@drawable/btn_newgame"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/button_info"
+        app:layout_constraintBottom_toTopOf="@+id/button_rules"
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="25dp"
-        android:layout_above="@+id/button_info"
-        android:layout_alignLeft="@+id/button_info"
-        android:layout_alignStart="@+id/button_info" />
+        android:layout_marginBottom="24dp"
+        android:layout_above="@+id/button_rules"
+        android:layout_alignLeft="@+id/button_rules"
+        android:layout_alignStart="@+id/button_rules" />
 
     <Button
-        android:id="@+id/button_info"
+        android:id="@+id/button_rules"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_rules"
