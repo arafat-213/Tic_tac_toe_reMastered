@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     Button one, two, three, four, five, six, seven, eight, nine, buttonReset, button_submit;
     String mark = "O";
     int player = 1;
-    Switch switch1;
+    //Switch switch1;
     int i = -1;
     char board[] = "0123456789".toCharArray();
     boolean betEntered = false;
@@ -47,17 +46,28 @@ public class MainActivity extends AppCompatActivity {
         button_submit = (Button) findViewById(R.id.button_submit);
         editTextInput = (EditText) findViewById(R.id.editTextInput);
         textViewPlayer = (TextView) findViewById(R.id.textViewPlayer);
-        switch1 = (Switch) findViewById(R.id.switch1);
+        //switch1 = (Switch) findViewById(R.id.switch1);
+
+
+        one.setBackgroundResource(R.drawable.reset);
+        two.setBackgroundResource(R.drawable.reset);
+        three.setBackgroundResource(R.drawable.reset);
+        four.setBackgroundResource(R.drawable.reset);
+        five.setBackgroundResource(R.drawable.reset);
+        six.setBackgroundResource(R.drawable.reset);
+        seven.setBackgroundResource(R.drawable.reset);
+        eight.setBackgroundResource(R.drawable.reset);
+        nine.setBackgroundResource(R.drawable.reset);
 
         // OnCLickListeners for all the 9 buttons of board
-        //if(betEntered) {
         one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 if (board[1] == '1' && betEntered) {
                     choice();
-                    one.setText(mark);
+                    //one.setText(mark);
+                    one.setBackgroundResource(getMarkImage());
                     board[1] = mark.charAt(0);
                     display();
                     betEntered = false;
@@ -71,7 +81,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (board[2] == '2' && betEntered) {
                     choice();
-                    two.setText(mark);
+                    //two.setText(mark);
+                    two.setBackgroundResource(getMarkImage());
                     board[2] = mark.charAt(0);
                     display();
                     betEntered = false;
@@ -84,7 +95,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (board[3] == '3' && betEntered) {
                     choice();
-                    three.setText(mark);
+                    //three.setText(mark);
+                    three.setBackgroundResource(getMarkImage());
                     board[3] = mark.charAt(0);
                     display();
                     betEntered = false;
@@ -98,7 +110,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (board[4] == '4' && betEntered) {
                     choice();
-                    four.setText(mark);
+                    //four.setText(mark);
+                    four.setBackgroundResource(getMarkImage());
                     board[4] = mark.charAt(0);
                     display();
                     betEntered = false;
@@ -112,7 +125,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (board[5] == '5' && betEntered) {
                     choice();
-                    five.setText(mark);
+                    //five.setText(mark);
+                    five.setBackgroundResource(getMarkImage());
                     board[5] = mark.charAt(0);
                     display();
                     betEntered = false;
@@ -126,7 +140,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (board[6] == '6' && betEntered) {
                     choice();
-                    six.setText(mark);
+                    //six.setText(mark);
+                    six.setBackgroundResource(getMarkImage());
                     board[6] = mark.charAt(0);
                     display();
                     betEntered = false;
@@ -140,7 +155,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (board[7] == '7' && betEntered) {
                     choice();
-                    seven.setText(mark);
+                    //seven.setText(mark);
+                    seven.setBackgroundResource(getMarkImage());
                     board[7] = mark.charAt(0);
                     display();
                     betEntered = false;
@@ -154,7 +170,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (board[8] == '8' && betEntered) {
                     choice();
-                    eight.setText(mark);
+                    //eight.setText(mark);
+                    eight.setBackgroundResource(getMarkImage());
                     board[8] = mark.charAt(0);
                     display();
                     betEntered = false;
@@ -168,14 +185,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (board[9] == '9' && betEntered) {
                     choice();
-                    nine.setText(mark);
+                    //nine.setText(mark);
+                    nine.setBackgroundResource(getMarkImage());
                     board[9] = mark.charAt(0);
                     display();
                     betEntered = false;
                 }
             }
         });
-        //}
+
         // Bet submitted
 
         button_submit.setOnClickListener(new View.OnClickListener() {
@@ -208,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        switch1.setClickable(false);
+        //switch1.setClickable(false);
     }
 
     public void gamble() {
@@ -272,28 +290,24 @@ public class MainActivity extends AppCompatActivity {
                 betEntered = true;
             } else {
                 showDialog("OOPS!!","Both bets are same. Try again",false);
-                Toast.makeText(getApplicationContext(), "Both bids are same. Try again", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Both bids are same. Try again", Toast.LENGTH_SHORT).show();
                 tmp1 = 0;
             }
         }
     }
 
-    // Alter the turns
+    // Alter the marks
     public void choice() {
         /*if(player%2==1)
             player=1;
         else
             player=2;*/
+        //markSwitch++;
         textViewPlayer.setText("Player : ");
-        markSwitch++;
-        if (markSwitch % 2 == 1) {
-            //mark="O";
-            mark = switch1.getTextOff().toString();
-            switch1.setChecked(true);
+        if (player==2) {
+            mark="X";
         } else {
-            //mark="X";
-            mark = switch1.getTextOn().toString();
-            switch1.setChecked(false);
+            mark="O";
         }
     }
 
@@ -435,10 +449,20 @@ public class MainActivity extends AppCompatActivity {
         markSwitch = 1;
         editTextInput.setText("");
         textViewPlayer.setText("Player : ");
-        switch1.setChecked(true);
+        //switch1.setChecked(true);
         for (i = 0; i < 10; i++) {
             board[i] = String.valueOf(i).charAt(0);
         }
+
+        one.setBackgroundResource(R.drawable.reset);
+        two.setBackgroundResource(R.drawable.reset);
+        three.setBackgroundResource(R.drawable.reset);
+        four.setBackgroundResource(R.drawable.reset);
+        five.setBackgroundResource(R.drawable.reset);
+        six.setBackgroundResource(R.drawable.reset);
+        seven.setBackgroundResource(R.drawable.reset);
+        eight.setBackgroundResource(R.drawable.reset);
+        nine.setBackgroundResource(R.drawable.reset);
 
         one.setClickable(true);
         two.setClickable(true);
@@ -450,29 +474,27 @@ public class MainActivity extends AppCompatActivity {
         eight.setClickable(true);
         nine.setClickable(true);
 
-        one.setText("");
-        two.setText("");
-        three.setText("");
-        four.setText("");
-        five.setText("");
-        six.setText("");
-        seven.setText("");
-        eight.setText("");
-        nine.setText("");
-
-        one.setTextColor(Color.BLACK);
-        two.setTextColor(Color.BLACK);
-        three.setTextColor(Color.BLACK);
-        four.setTextColor(Color.BLACK);
-        five.setTextColor(Color.BLACK);
-        six.setTextColor(Color.BLACK);
-        seven.setTextColor(Color.BLACK);
-        eight.setTextColor(Color.BLACK);
-        nine.setTextColor(Color.BLACK);
-
-
+//        one.setText("");
+//        two.setText("");
+//        three.setText("");
+//        four.setText("");
+//        five.setText("");
+//        six.setText("");
+//        seven.setText("");
+//        eight.setText("");
+//        nine.setText("");
+//
+//        one.setTextColor(Color.BLACK);
+//        two.setTextColor(Color.BLACK);
+//        three.setTextColor(Color.BLACK);
+//        four.setTextColor(Color.BLACK);
+//        five.setTextColor(Color.BLACK);
+//        six.setTextColor(Color.BLACK);
+//        seven.setTextColor(Color.BLACK);
+//        eight.setTextColor(Color.BLACK);
+//        nine.setTextColor(Color.BLACK);
     }
-    // GO back to Home page....
+
 
     public void showDialog(String title, String message, final boolean resetGame) {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
@@ -488,6 +510,7 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog alert = builder.create();
         alert.show();
     }
+
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setMessage("Are you sure you want to exit?")
@@ -515,4 +538,15 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayer.pause();
         super.onStop();
     }*/
+
+   public int getMarkImage(){
+
+       if(player==1){
+           return(R.drawable.o2);
+
+       }else {
+           return (R.drawable.x2);
+       }
+   }
+
 }

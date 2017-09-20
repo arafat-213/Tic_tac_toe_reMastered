@@ -10,12 +10,14 @@ import android.view.View;
 import android.widget.Button;
 
 import static com.wordpress.yourblogger.ttt_alpha.R.*;
+import static com.wordpress.yourblogger.ttt_alpha.R.id.dual_player;
 
 public class HomeActivity extends AppCompatActivity {
-    Button button_rules,button_exit;
-    Button button_newGame;
+    Button button_rules, button_exit;
+    Button dual_Player;
     Button buttonMute;
     public MediaPlayer mediaPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(style.Theme_AppCompat_Light_NoActionBar);
@@ -30,8 +32,8 @@ public class HomeActivity extends AppCompatActivity {
         }*/
 
         final Intent intent = new Intent(this, MainActivity.class);
-        button_newGame = (Button) findViewById(id.button_newGame);
-        button_newGame.setOnClickListener(new View.OnClickListener() {
+        dual_Player = (Button) findViewById(dual_player);
+        dual_Player.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(intent);
@@ -44,18 +46,17 @@ public class HomeActivity extends AppCompatActivity {
         buttonMute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!mediaPlayer.isPlaying()) {
+                if (!mediaPlayer.isPlaying()) {
                     mediaPlayer.start();
                     mediaPlayer.setLooping(true);
                     buttonMute.setBackgroundResource(R.drawable.button_unmute);
-                }
-                else{
+                } else {
                     mediaPlayer.pause();
                     buttonMute.setBackgroundResource(R.drawable.button_mute);
                 }
             }
         });
-        button_rules = (Button) findViewById(id.button_info);
+        button_rules = (Button) findViewById(id.button_rules);
         button_rules.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -102,8 +103,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
-
-   @Override
+    @Override
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
         builder.setMessage("Are you sure you want to exit?")
@@ -127,6 +127,8 @@ public class HomeActivity extends AppCompatActivity {
         if (!mediaPlayer.isPlaying()) {
             mediaPlayer.start();
             mediaPlayer.setLooping(true);
+        } else {
+            return;
         }
         super.onStart();
     }
@@ -138,10 +140,11 @@ public class HomeActivity extends AppCompatActivity {
         super.onStop();
     }
 
-    /* @Override
+    @Override
     protected void onDestroy() {
         if(mediaPlayer.isPlaying())
             mediaPlayer.pause();
         super.onDestroy();
     }*/
+
 }

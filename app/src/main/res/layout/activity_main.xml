@@ -142,20 +142,4 @@
         tools:layout_editor_absoluteY="345dp"
         tools:layout_editor_absoluteX="8dp" />
 
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/buttonReset"
-        android:layout_alignRight="@+id/buttonReset"
-        android:layout_below="@+id/playArea"
-        android:layout_marginTop="14dp"
-        android:checked="true"
-        android:showText="true"
-        android:splitTrack="false"
-        android:switchTextAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textOff="X"
-        android:textOn="O"
-        tools:checked="true" />
-
 </RelativeLayout>

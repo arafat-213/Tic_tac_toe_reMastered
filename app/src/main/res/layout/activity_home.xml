@@ -1,68 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_bright"
+    android:background="@drawable/home"
     tools:context="com.wordpress.yourblogger.ttt_alpha.HomeActivity">
 
     <Button
-        android:id="@+id/button_newGame"
-        android:layout_width="wrap_content"
+        android:id="@+id/dual_player"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_newgame"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/button_rules"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="24dp"
-        android:layout_above="@+id/button_rules"
-        android:layout_alignLeft="@+id/button_rules"
-        android:layout_alignStart="@+id/button_rules" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginRight="55dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="255dp"
+        android:background="@drawable/dual_player" />
+
+    <Button
+        android:id="@+id/button_vsAndroid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dual_player"
+        android:layout_alignStart="@+id/dual_player"
+        android:layout_alignLeft="@+id/dual_player"
+        android:layout_alignRight="@+id/dual_player"
+        android:layout_alignEnd="@+id/dual_player"
+        android:layout_marginBottom="16dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/vs_android" />
 
     <Button
         android:id="@+id/button_rules"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_rules"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/button_exit"
-        app:layout_constraintRight_toRightOf="@+id/button_newGame"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/button_newGame"
-        android:layout_marginBottom="25dp"
-        android:layout_above="@+id/button_exit"
-        android:layout_alignLeft="@+id/button_exit"
-        android:layout_alignStart="@+id/button_exit" />
+        android:layout_below="@+id/button_vsAndroid"
+        android:layout_alignStart="@+id/dual_player"
+        android:layout_alignLeft="@+id/dual_player"
+        android:layout_alignRight="@+id/dual_player"
+        android:layout_alignEnd="@+id/dual_player"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rules" />
 
     <Button
         android:id="@+id/button_exit"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_exit"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginBottom="25dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/button_rules"
+        android:layout_alignStart="@+id/dual_player"
+        android:layout_alignLeft="@+id/dual_player"
+        android:layout_alignRight="@+id/dual_player"
+        android:layout_alignEnd="@+id/dual_player"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/exit" />
 
     <Button
         android:id="@+id/button_Mute"
         android:layout_width="88dp"
         android:layout_height="55dp"
-        android:background="@drawable/button_mute"
-        app:layout_constraintBaseline_toBaselineOf="parent"
-        tools:layout_constraintBaseline_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentTop="true"
+        android:background="@drawable/button_mute"
+        android:backgroundTint="?android:attr/colorBackground" />
+
 </RelativeLayout>
